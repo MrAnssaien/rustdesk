@@ -12,7 +12,7 @@ jobs:
       - name: Checkout the forked repository
         uses: actions/checkout@v3
         with:
-          ref: main # or the default branch
+          ref: master # Updated to master branch
 
       - name: Setup Git
         run: |
@@ -26,9 +26,9 @@ jobs:
         run: git fetch upstream
 
       - name: Merge Upstream changes
-        run: git merge upstream/main --allow-unrelated-histories
+        run: git merge upstream/master --allow-unrelated-histories
 
       - name: Push changes to fork
-        run: git push origin main
+        run: git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
